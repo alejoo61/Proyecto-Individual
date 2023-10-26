@@ -1,4 +1,5 @@
 const axios = require("axios");
+const { Pokemon, Types } = require("../db");
 
 const URL = "https://pokeapi.co/api/v2/pokemon";
 
@@ -36,6 +37,12 @@ const getAllPokemonsController = async () => {
     });
 
     const pokemonsApi = await Promise.all(promises);
+    const pokemonsDB = await Pokemon.findAll({ include: { model: Types } });
+    if (pokemonsDB.length !== 0) {
+      console.log(pokemonsDB);
+
+      return [...pokemonsDB, ...pokemonsApi];
+    }
     return pokemonsApi;
   } catch (error) {
     return { error: error.message };
