@@ -1,0 +1,120 @@
+.card-container a:link a:visited a:active {
+  text-decoration: none;
+}
+
+.card-container {
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+  cursor: pointer;
+  -moz-osx-font-smoothing: grayscale;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  transition: trasnform 0.25s ease-out;
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 387px;
+  border-radius: 18px;
+  font-family: Pokemon;
+  color: #1a1f14;
+}
+
+.card-container h2 {
+  font-size: 30px;
+  position: relative;
+  top: -38px;
+  padding-right: 6px;
+}
+.card-type {
+  display: flex;
+  gap: 1rem;
+  position: relative;
+  padding-right: 56px;
+  top: 24px;
+  padding-left: 35px;
+}
+@font-face {
+  font-family: "Pokemon";
+  src: url("../../assets/PocketMonk.ttf") format("truetype");
+}
+
+.card-type p {
+  margin: 0;
+}
+.card-container-img {
+  width: 230px;
+  position: relative;
+  left: 1px;
+}
+.card-type div {
+  margin-right: auto;
+}
+
+.card-container-ice {
+  background-image: url("../iceCard.png");
+}
+
+.card-container-grass {
+  background-image: url("../grassCard.png");
+}
+
+.card-container-bug {
+  background-image: url("../bugCard.png");
+}
+
+.card-container-electric {
+  background-image: url("../electricCard.png");
+}
+
+.card-container-ground {
+  background-image: url("../groundCard.png");
+}
+
+.card-container-fighting {
+  background-image: url("../groundCard.png");
+}
+
+.card-container-rock {
+  background-image: url("../groundCard.png");
+}
+
+.card-container-steel {
+  background-image: url("../steelCard.png");
+}
+
+.card-container-psychic {
+  background-image: url("../psyquiCard.png");
+}
+
+.card-container-ghost {
+  background-image: url("../psyquiCard.png");
+}
+
+.card-container-poison {
+  background-image: url("../psyquiCard.png");
+}
+
+.card-container-water {
+  background-image: url("../waterCard.png");
+}
+
+.card-container-normal {
+  background-image: url("../normalCard.png");
+}
+
+.card-container-fairy {
+  background-image: url("../normalCard.png");
+}
+
+.card-container-dragon {
+  background-image: url("../normalCard.png");
+}
+
+.card-container-fire {
+  background-image: url("../fireCard.png");
+}
+
+.card-container:hover {
+  transform: scale(1.05);
+}
