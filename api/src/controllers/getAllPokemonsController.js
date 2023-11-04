@@ -39,8 +39,6 @@ const getAllPokemonsController = async () => {
     const pokemonsApi = await Promise.all(promises);
     const pokemonsDB = await Pokemon.findAll({ include: { model: Types } });
     if (pokemonsDB.length !== 0) {
-      console.log(pokemonsDB);
-
       return [...pokemonsDB, ...pokemonsApi];
     }
     return pokemonsApi;
