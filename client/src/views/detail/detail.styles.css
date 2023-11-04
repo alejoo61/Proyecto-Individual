@@ -2,6 +2,7 @@
   margin-top: 4rem;
 }
 .detail-container {
+  font-family: Pokemon;
   margin: 0 auto;
   margin-top: 5 rem;
   justify-content: center;
@@ -20,6 +21,11 @@ img {
   width: 250px;
 }
 
+@font-face {
+  font-family: "Pokemon";
+  src: url("../../assets/PocketMonk.ttf") format("truetype");
+}
+
 .detail {
   display: flex;
   flex-direction: column;
@@ -32,4 +38,9 @@ img {
   font-size: 18px;
   font-weight: bold;
   align-items: center;
+}
+
+.div-img {
+  background-color: #514f4f;
+  border-radius: 150px;
 }

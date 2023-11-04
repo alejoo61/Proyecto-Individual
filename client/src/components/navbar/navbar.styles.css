@@ -2,8 +2,20 @@
   -webkit-appearance: none;
   border: none;
   outline: none;
-  padding: 10px;
-  width: 150px;
-  line-height: 30px;
-  margin-bottom: 30px;
+  padding: 23px;
+  width: 281px;
+  display: flex;
+  gap: 1rem;
+  line-height: 18px;
+  margin-bottom: 1px;
+}
+
+@font-face {
+  font-family: "Pokemon";
+  src: url("../../assets/PocketMonk.ttf") format("truetype");
+}
+
+button,
+input {
+  font-family: Pokemon;
 }

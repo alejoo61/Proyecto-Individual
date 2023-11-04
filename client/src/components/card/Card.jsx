@@ -1,7 +1,8 @@
 import "../card/card.styles.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Card({ pokemon }) {
+  const navigate = useNavigate();
   return (
     <div
       className={
@@ -19,7 +20,7 @@ function Card({ pokemon }) {
       <div className="card-type">
         <div>Type:</div>
         {pokemon.types?.map((type) => (
-          <p>{type.name} </p>
+          <p key={type.name}>{type.name} </p>
         ))}{" "}
       </div>
     </div>

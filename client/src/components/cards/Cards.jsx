@@ -8,17 +8,19 @@ function Cards({ allPokemons }) {
   const [toPage, setToPage] = useState(12);
   const max = Math.ceil(allPokemons?.length / toPage);
 
-  const pokemonsList = allPokemons;
-
   return (
-    <div className="card-list">
-      {pokemonsList
-        ?.slice((page - 1) * toPage, (page - 1) * toPage + toPage)
-        .map((pokemon) => (
-          <Card pokemon={pokemon} />
-        ))}
-      <Pagination page={page} setPage={setPage} max={max} />
-    </div>
+    <>
+      <div className="card-list">
+        {allPokemons
+          ?.slice((page - 1) * toPage, (page - 1) * toPage + toPage)
+          .map((pokemon) => (
+            <Card key={pokemon.id} pokemon={pokemon} />
+          ))}
+      </div>
+      <div>
+        <Pagination page={page} setPage={setPage} max={max} />
+      </div>
+    </>
   );
 }
 
