@@ -4,5 +4,8 @@
   align-content: center;
   align-items: center;
   margin: auto;
-  padding-left: 45px;
+  padding-left: 26px;
+  padding-right: 2rem;
+  color: whitesmoke;
+  letter-spacing: 2px;
 }

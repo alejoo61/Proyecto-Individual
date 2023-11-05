@@ -3,11 +3,11 @@
   border: none;
   outline: none;
   padding: 23px;
-  width: 281px;
+  width: 230px;
   display: flex;
   gap: 1rem;
   line-height: 18px;
-  margin-bottom: 1px;
+  margin: auto;
 }
 
 @font-face {

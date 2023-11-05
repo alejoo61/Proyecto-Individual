@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 import { getPokemons, getPokemonsByName } from "../../redux/actions";
 
@@ -8,16 +8,35 @@ import Navbar from "../../components/navbar/Navbar";
 import Cards from "../../components/cards/Cards";
 import Order from "../../components/order/Order";
 import Filters from "../../components/filters/Filters";
+import Create from "../create/Create";
 import "../home/home.styles.css";
 
 function Home() {
   const dispatch = useDispatch();
   const allPokemons = useSelector((state) => state.allPokemons);
   const pokemonDetails = useSelector((state) => state.pokemonDetails);
+  const [scrolling, setScrolling] = useState(false);
 
   const navigate = useNavigate();
 
   const [aux, setAux] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 200) {
+        // Cambia 200 al valor de desplazamiento que desees
+        setScrolling(true);
+      } else {
+        setScrolling(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   useEffect(() => {
     dispatch(getPokemons());
@@ -48,11 +67,30 @@ function Home() {
 
   return (
     <div className="home">
-      <div className="navbar">
+      <div className={`navbar ${scrolling ? "solid-bg" : ""} navbar`}>
+        <div>
+          <img
+            src="../logopokemon.webp"
+            alt=""
+            style={{ marginLeft: "1rem" }}
+          />
+        </div>
+
         <Filters />
         <Order />
 
         <Navbar onSearch={onSearch} />
+        <Link
+          style={{
+            textDecoration: "none",
+            color: "#0000;",
+            marginTop: "8px",
+            marginRight: "5rem",
+          }}
+          to={"/create"}
+        >
+          <h1 className="link">Create</h1>
+        </Link>
       </div>
 
       <Cards allPokemons={allPokemons} />

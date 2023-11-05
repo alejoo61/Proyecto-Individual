@@ -4,14 +4,19 @@
   align-items: center;
   flex-direction: row;
   column-gap: 1rem;
-  margin-right: 50px;
+  margin-right: 1rem;
+  margin-left: 6rem;
+  color: whitesmoke;
+  letter-spacing: 2px;
 }
 
 .filter-origin {
   display: flex;
-  gap: 2rem;
+  gap: 1rem;
   align-content: center;
   align-items: center;
+  color: whitesmoke;
+  letter-spacing: 2px;
 }
 
 .contenedor-filter {
@@ -27,6 +32,7 @@ h2,
 option,
 select {
   font-family: Pokemon;
+  letter-spacing: 1px;
 }
 
 select {
