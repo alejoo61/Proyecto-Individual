@@ -18,7 +18,7 @@ server.use(morgan("dev"));
 server.use((req, res, next) => {
   res.header(
     "Access-Control-Allow-Origin",
-    "https://pokemon-pi-alejo.vercel.app/"
+    "https://pokemon-pi-alejo.vercel.app"
   ); // update to match the domain you will make the request
   res.header("Access-Control-Allow-Credentials", "true");
   res.header(
@@ -30,7 +30,7 @@ server.use((req, res, next) => {
 });
 
 const corsOptions = {
-  origin: "https://pokemon-pi-alejo.vercel.app/",
+  origin: "https://pokemon-pi-alejo.vercel.app",
   credentials: true,
 };
 
