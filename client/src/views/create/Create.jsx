@@ -85,7 +85,7 @@ const Form = () => {
   };
 
   const handleClick = (typeId) => {
-    if (typesActive.length > 3) {
+    if (typesActive.length > 1) {
       if (typesActive.includes(typeId)) {
         const newArray = typesActive.filter((type) => type !== typeId);
         setTypeActive(newArray);
