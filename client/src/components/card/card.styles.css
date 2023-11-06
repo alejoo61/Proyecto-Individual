@@ -2,7 +2,7 @@
   background-color: black;
   display: flex;
   flex-direction: column;
-  padding: 25px;
+  padding: 26px;
   cursor: pointer;
   -moz-osx-font-smoothing: grayscale;
   backface-visibility: hidden;
@@ -10,7 +10,7 @@
   transition: trasnform 0.25s ease-out;
   background-size: contain;
   background-repeat: no-repeat;
-  height: 387px;
+  height: 385px;
   border-radius: 18px;
   font-family: Pokemon;
   color: #1a1f14;
@@ -80,6 +80,10 @@
 }
 
 .card-container-psychic {
+  background-image: url("../psyquiCard.png");
+}
+
+.card-container-shadow {
   background-image: url("../psyquiCard.png");
 }
 

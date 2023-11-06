@@ -2,51 +2,110 @@ import React, { useEffect } from "react";
 import "./detail.styles.css";
 import { useParams, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getPokemonsId } from "../../redux/actions";
-import "../detail/detail.styles.css";
+import { getPokemons, getPokemonsId } from "../../redux/actions";
 
 function Details() {
   const { id } = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  //console.log(pokemonDetails);
+  const pokemonDetail = useSelector((state) => state.pokemonDetails);
+
   useEffect(() => {
     dispatch(getPokemonsId(id));
   }, []);
 
-  const pokemonDetails = useSelector((state) => state.pokemonDetails);
-
   return (
-    <div className="container">
-      <div className="detail-container">
-        <div className="div-img">
-          <img src={pokemonDetails?.image} alt="" />
-          <div className="types">
-            Type:
-            {pokemonDetails?.types?.map((type) => (
-              <p key={type.name}>{type.name} </p>
-            ))}{" "}
+    <div className="card_details">
+      <h2 className="pokemon_name" style={{ marginTop: "1rem" }}>
+        {pokemonDetail?.name}
+      </h2>
+      <div className="img_container">
+        <img src={pokemonDetail?.image} alt="" />
+      </div>
+      <div key={id} className="type_container">
+        {pokemonDetail?.types?.map((type) => (
+          <div className="type_item">
+            <span className={"detail_type2 detail_type2_" + type.name}></span>
+            <span>{type.name}</span>
+          </div>
+        ))}
+      </div>
+      <div className="detail_powers">
+        <div className="detail_power detail_power_info">
+          <div className="detail_power_flex">
+            <span>Height</span>
+            <span> {pokemonDetail?.height / 10}m</span>
           </div>
         </div>
-
-        <div className="detail">
-          <h2>{pokemonDetails?.name} </h2>
-          <p>HP: {pokemonDetails.health} </p>
-          <p>ATAQUE: {pokemonDetails.attack} </p>
-          <p>DEFENSA: {pokemonDetails.defense} </p>
-          {pokemonDetails.speed ? (
-            <p>VELOCIDAD: {pokemonDetails.speed} </p>
-          ) : null}
-          {pokemonDetails.height ? (
-            <p>ALTURA: {pokemonDetails.height / 10} m </p>
-          ) : null}
-          {pokemonDetails.weight ? (
-            <p>PESO: {pokemonDetails.weight / 10} kg </p>
-          ) : null}
+        <div className="detail_power detail_power_info">
+          <div className="detail_power_flex">
+            <span>Weight</span>
+            <span>{pokemonDetail?.weight / 10}k</span>
+          </div>
         </div>
-        <button onClick={() => navigate(-1)}>Back</button>
+        <div className="detail_power detail_power_attack">
+          <div className="detail_power_flex">
+            <span>Attack</span>
+            <span>{pokemonDetail?.attack}</span>
+          </div>
+          <div className="detail_bar">
+            <div
+              className="detail_bar_fill"
+              style={{ width: (pokemonDetail?.attack * 100) / 102 + "%" }}
+            ></div>
+          </div>
+        </div>
+        <div className="detail_power detail_power_defense">
+          <div className="detail_power_flex">
+            <span>Defense</span>
+            <span>{pokemonDetail?.defense}</span>
+          </div>
+          <div className="detail_bar">
+            <div
+              className="detail_bar_fill"
+              style={{ width: (pokemonDetail?.defense * 100) / 110 + "%" }}
+            ></div>
+          </div>
+        </div>
+        <div className="detail_power detail_power_health">
+          <div className="detail_power_flex">
+            <span>Health</span>
+            <span>{pokemonDetail?.health}</span>
+          </div>
+          <div className="detail_bar">
+            <div
+              className="detail_bar_fill"
+              style={{ width: (pokemonDetail?.health * 100) / 140 + "%" }}
+            ></div>
+          </div>
+        </div>
+        <div className="detail_power detail_power_speed">
+          <div className="detail_power_flex">
+            <span>Speed</span>
+            <span>{pokemonDetail?.speed}</span>
+          </div>
+          <div className="detail_bar">
+            <div
+              className="detail_bar_fill"
+              style={{ width: (pokemonDetail?.speed * 100) / 110 + "%" }}
+            ></div>
+          </div>
+        </div>
       </div>
+      <button
+        style={{
+          margin: "auto",
+          width: "100px",
+          height: "20px",
+          cursor: "pointer",
+          alignItems: "center",
+          flexDirection: "column",
+        }}
+        onClick={() => navigate(-1)}
+      >
+        Back
+      </button>
     </div>
   );
 }

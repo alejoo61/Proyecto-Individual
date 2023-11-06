@@ -79,3 +79,22 @@ export const filterTypes = (type) => {
     payload: type,
   };
 };
+
+export const createPokemon = (newPokemon) => {
+  return async (dispatch) => {
+    try {
+      console.log(newPokemon);
+      const response = await axios.post(
+        "http://localhost:3001/pokemons/create",
+        newPokemon
+      );
+      const data = response.data;
+      dispatch({
+        type: "ADD_POKEMON_FRONT",
+        payload: data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};

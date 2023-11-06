@@ -72,7 +72,7 @@ function Home() {
           <img
             src="../logopokemon.webp"
             alt=""
-            style={{ marginLeft: "1rem" }}
+            style={{ marginLeft: "1rem", width: "250px" }}
           />
         </div>
 

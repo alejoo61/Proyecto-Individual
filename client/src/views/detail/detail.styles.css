@@ -1,46 +1,369 @@
-.container {
-  margin-top: 4rem;
-}
-.detail-container {
-  font-family: Pokemon;
-  margin: 0 auto;
-  margin-top: 5 rem;
-  justify-content: center;
-  width: 40%;
-  height: 20%;
-  display: flex;
-  background-color: #95dada;
-  border: 1px solid grey;
-  border-radius: 5px;
-  padding: 25px;
-  align-items: center;
-  gap: 2rem;
-}
-
-img {
-  width: 250px;
-}
-
 @font-face {
-  font-family: "Pokemon";
-  src: url("../../assets/PocketMonk.ttf") format("truetype");
+  font-family: "Daydream";
+  src: url("../../assets/Daydream.ttf") format("truetype");
 }
 
-.detail {
+.card_details {
+  background-image: url("../../assets/background.jpg");
+}
+
+span.detail_type2 {
+  background-image: url("../../assets/types2.jpg");
+}
+
+.card_details {
+  height: 100%;
+  position: fixed;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+}
+
+.img_container img {
+  height: 225px;
+  width: 225px;
+}
+
+.img_container {
+  margin: auto;
+}
+
+h2.pokemon_name {
+  font-family: "Daydream";
+  font-size: 40px;
+  line-height: 90px;
+  margin: 0;
+  color: #ffcb02;
+  -webkit-text-stroke: 2px #3c58a5;
+  display: flex;
+  align-self: center;
+}
+
+.detail_flex {
+  display: flex;
+  justify-content: center;
+}
+
+.type_container {
+  display: flex;
+  align-self: center;
+  margin-top: auto;
+  max-width: 390px;
+  width: 100%;
+  justify-content: space-around;
+}
+
+span.detail_type {
+  height: 22px;
+  width: 57px;
+  background-size: auto 180px;
+  margin-right: 10px;
+}
+
+span.detail_type.detail_type_grass {
+  background-position: -47px -41px;
+}
+
+span.detail_type.detail_type_poison {
+  background-position: -166px -135px;
+}
+
+span.detail_type:last-child {
+  margin-right: 0;
+}
+
+.detail_power span {
+  font-family: "Daydream";
+  color: #fff;
+  -webkit-text-stroke: 2px #000;
+  /* width: 116px; */
+  display: block;
+  text-align: right;
+  position: relative;
+}
+
+.detail_power.detail_power_attack span {
+  color: #f44336;
+}
+
+.detail_power.detail_power_defense span {
+  color: #2196f3;
+}
+
+.detail_power.detail_power_health span {
+  color: #4caf50;
+}
+
+.detail_power.detail_power_speed span {
+  color: #9c27b0;
+}
+
+.detail_power {
+  display: flex;
+  margin-bottom: 30px;
+  align-items: center;
+  flex-direction: column;
+  width: 173px;
+}
+
+.detail_bar {
+  background: #000;
+  width: 170px;
+  height: 17px;
+  display: block;
+  margin-left: -5px;
+  border-radius: 5px;
+  padding-left: 4px;
+  display: flex;
+  align-items: center;
+  padding-right: 4px;
+  margin-top: -4px;
+}
+
+.detail_powers {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  max-width: 390px;
+  justify-content: space-between;
+  margin: 30px auto 0 auto;
+}
+
+.detail_bar_fill {
+  height: 9px;
+  width: 100%;
+  border-radius: 2px;
+}
+
+.detail_power.detail_power_attack .detail_bar_fill {
+  background: #f44336;
+}
+.detail_power.detail_power_defense .detail_bar_fill {
+  background: #2196f3;
+}
+.detail_power.detail_power_health .detail_bar_fill {
+  background: #4caf50;
+}
+.detail_power.detail_power_speed .detail_bar_fill {
+  background: #9c27b0;
+}
+
+.detail_power > span:last-child {
+  width: 100px;
+  text-align: left;
+  margin-left: -3px;
+}
+
+.detail_power_flex {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.detail_power span:last-child {
+  color: #fff !important;
+}
+
+.detail_power.detail_power_info span:first-child {
+  color: #ffcb02;
+}
+
+.detail_id {
+  font-family: "Daydream";
+  font-size: 17px;
+  line-height: 40px;
+  margin: 0;
+  color: #ffcb02;
+  -webkit-text-stroke: 2px #3c58a5;
+  display: flex;
+  align-self: center;
+  margin-bottom: -20px;
+  margin-top: 20px;
+}
+
+span.detail_type2 + span {
+  font-family: "Daydream";
+  color: #fff;
+  -webkit-text-stroke: 2px #000;
+  display: block;
+  text-align: right;
+  position: relative;
+  margin-top: -10px;
+}
+
+.type_item {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.types {
-  display: flex;
-  gap: 1rem;
-  font-size: 18px;
-  font-weight: bold;
-  align-items: center;
+.type_item:last-child {
+  margin-right: 0;
 }
 
-.div-img {
-  background-color: #514f4f;
-  border-radius: 150px;
+span.type_title {
+  font-family: "Daydream";
+  color: #fff;
+  -webkit-text-stroke: 2px #000;
+  /* width: 116px; */
+  display: block;
+  text-align: right;
+  position: relative;
+  margin-right: auto;
+}
+
+span.detail_type2 {
+  height: 40px;
+  display: block;
+  width: 40px;
+  background-size: 250px;
+  border-radius: 30px;
+  border: 2px solid #000;
+}
+
+span.detail_type2.detail_type2_grass {
+  background-position: -1px 41px;
+}
+
+span.detail_type2.detail_type2_grass + span {
+  color: #35c04b;
+}
+
+span.detail_type2.detail_type2_poison {
+  background-position: 83px 41px;
+}
+
+span.detail_type2.detail_type2_poison + span {
+  color: #b566cf;
+}
+
+span.detail_type2.detail_type2_normal {
+  background-position: 83px 82px;
+}
+
+span.detail_type2.detail_type2_dragon {
+  background-position: 124px 124px;
+}
+
+span.detail_type2.detail_type2_ice {
+  background-position: 166px 82px;
+}
+
+span.detail_type2.detail_type2_bug {
+  background-position: 166px 124px;
+}
+
+span.detail_type2.detail_type2_rock {
+  background-position: 166px 165px;
+}
+
+span.detail_type2.detail_type2_water {
+  background-position: 208px 123px;
+}
+
+span.detail_type2.detail_type2_fight {
+  background-position: 124px 207px;
+}
+
+span.detail_type2.detail_type2_ground {
+  background-position: 124px 165px;
+}
+
+span.detail_type2.detail_type2_fire {
+  background-position: 249px 207px;
+}
+
+span.detail_type2.detail_type2_steel {
+  background-position: -1px 123px;
+}
+
+span.detail_type2.detail_type2_flying {
+  background-position: 41px 165px;
+}
+
+span.detail_type2.detail_type2_psychic {
+  background-position: -43px 165px;
+}
+
+span.detail_type2.detail_type2_electric {
+  background-position: 82px 123px;
+}
+
+span.detail_type2.detail_type2_dark {
+  background-position: 41px 82px;
+}
+
+span.detail_type2.detail_type2_ghost {
+  background-position: 41px 123px;
+}
+
+span.detail_type2.detail_type2_fairy {
+  background-position: -42px 82px;
+}
+
+span.detail_type2.detail_type2_normal + span {
+  color: #5792a4;
+}
+
+span.detail_type2.detail_type2_dragon + span {
+  color: #0872c8;
+}
+
+span.detail_type2.detail_type2_ice + span {
+  color: #49d2c0;
+}
+
+span.detail_type2.detail_type2_bug + span {
+  color: #86c502;
+}
+
+span.detail_type2.detail_type2_rock + span {
+  color: #d7c597;
+}
+
+span.detail_type2.detail_type2_water + span {
+  color: #3393dd;
+}
+
+span.detail_type2.detail_type2_fight + span {
+  color: #e52d6b;
+}
+
+span.detail_type2.detail_type2_ground + span {
+  color: #e55f16;
+}
+
+span.detail_type2.detail_type2_fire + span {
+  color: #fd9b44;
+}
+
+span.detail_type2.detail_type2_steel + span {
+  color: #588fa3;
+}
+
+span.detail_type2.detail_type2_flying + span {
+  color: #89ace4;
+}
+
+span.detail_type2.detail_type2_psychic + span {
+  color: #ff6779;
+}
+
+span.detail_type2.detail_type2_electric + span {
+  color: #fbd100;
+}
+
+span.detail_type2.detail_type2_dark + span {
+  color: #5c5366;
+}
+
+span.detail_type2.detail_type2_ghost + span {
+  color: #4f69b6;
+}
+
+span.detail_type2.detail_type2_fairy + span {
+  color: #fc8aec;
 }

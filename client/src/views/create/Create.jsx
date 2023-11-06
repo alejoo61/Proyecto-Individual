@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import "../create/create.styles.css";
+import { createPokemon } from "../../redux/actions";
 
 import { useDispatch } from "react-redux";
 import { useNavigate, Link } from "react-router-dom";
@@ -109,7 +110,7 @@ const Form = () => {
           <h1>Home</h1>
         </Link>
       </div>
-      <h1 className="titulo">Crea tu Pokemon!</h1>
+      <h1 className="titulo">Create your Pokemon!</h1>
       <form className="form" onSubmit={handleSubmit}>
         <div className="campos">
           <div className="campo">
@@ -206,15 +207,19 @@ const Form = () => {
               style={{ cursor: "pointer" }}
             >
               <div className="typesDiv">
-                <span className={`${[type.name]} "types"`}></span>
+                <div className="type_item">
+                  <span
+                    className={"detail_type2 detail_type2_" + type.name}
+                  ></span>
+                </div>
               </div>
               <p className="nameType">{type.name}</p>
             </button>
           ))}
         </div>
 
-        <button className="buttonSubmit" type="submit">
-          Crear Pokémon!
+        <button onClick={handleSubmit} className="buttonSubmit" type="submit">
+          Create Pokemon!
         </button>
       </form>
       <button
