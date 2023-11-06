@@ -200,7 +200,7 @@ const Form = () => {
             <button
               type="button"
               key={type.id}
-              className={`${typesActive.includes(type.id)} ? active: ''}`}
+              className={`${typesActive.includes(type.id) ? "active" : ""}`}
               onClick={() => handleClick(type.id)}
               style={{ cursor: "pointer" }}
             >
