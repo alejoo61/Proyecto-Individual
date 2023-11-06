@@ -3,6 +3,7 @@ const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const morgan = require("morgan");
 const routes = require("./routes/index.js");
+const cors = require("cors");
 
 require("./db.js");
 
@@ -17,8 +18,8 @@ server.use(morgan("dev"));
 server.use((req, res, next) => {
   res.header(
     "Access-Control-Allow-Origin",
-    "https://pokemon-pi-alejo.vercel.app/"
-  ); // update to match the domain you will make the request from
+    "https://pokemon-pi-alejo.vercel.app/home"
+  ); // update to match the domain you will make the request
   res.header("Access-Control-Allow-Credentials", "true");
   res.header(
     "Access-Control-Allow-Headers",
@@ -27,6 +28,13 @@ server.use((req, res, next) => {
   res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
   next();
 });
+
+const corsOptions = {
+  origin: "https://pokemon-pi-alejo.vercel.app/home",
+  credentials: true,
+};
+
+server.use(cors(corsOptions));
 
 server.use("/", routes);
 
