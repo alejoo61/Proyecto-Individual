@@ -4,6 +4,8 @@ import Home from "./views/home/Home";
 import Create from "./views/create/Create";
 import Details from "./views/detail/Details";
 import Landing from "./views/landing/Landing";
+import axios from "axios";
+axios.defaults.baseURL = "https://pokemonbackend.up.railway.app/";
 
 function App() {
   return (

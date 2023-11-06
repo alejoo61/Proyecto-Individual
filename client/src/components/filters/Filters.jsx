@@ -10,7 +10,7 @@ const Filters = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3001/types")
+      .get("/types")
       .then(({ data }) => {
         if (data) {
           setTypes(data);

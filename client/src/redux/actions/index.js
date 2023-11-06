@@ -10,7 +10,7 @@ export const FILTER_TYPES = "FILTER_TYPES";
 export const getPokemons = () => {
   return async (dispatch) => {
     try {
-      const response = await axios.get("http://localhost:3001/pokemons/");
+      const response = await axios.get("/pokemons/");
       dispatch({
         type: GET_POKEMONS,
         payload: response.data,
@@ -25,9 +25,7 @@ export const getPokemons = () => {
 export const getPokemonsId = (id) => {
   return async (dispatch) => {
     try {
-      const response = await axios.get(
-        `http://localhost:3001/pokemons/id/${id}`
-      );
+      const response = await axios.get(`/pokemons/id/${id}`);
       //console.log(response.data);
       await dispatch({
         type: GET_POKEMONSID,
@@ -43,9 +41,7 @@ export const getPokemonsId = (id) => {
 export const getPokemonsByName = async (name) => {
   return async (dispatch) => {
     try {
-      const response = await axios.get(
-        `http://localhost:3001/pokemons/name?name=${name}`
-      );
+      const response = await axios.get(`/pokemons/name?name=${name}`);
       // console.log(response.data);
       dispatch({
         type: GET_POKEMONSBYNAME,
@@ -84,10 +80,7 @@ export const createPokemon = (newPokemon) => {
   return async (dispatch) => {
     try {
       console.log(newPokemon);
-      const response = await axios.post(
-        "http://localhost:3001/pokemons/create",
-        newPokemon
-      );
+      const response = await axios.post("/pokemons/create", newPokemon);
       const data = response.data;
       dispatch({
         type: "ADD_POKEMON_FRONT",
