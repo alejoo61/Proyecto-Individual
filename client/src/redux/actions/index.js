@@ -10,7 +10,7 @@ export const FILTER_TYPES = "FILTER_TYPES";
 export const getPokemons = () => {
   return async (dispatch) => {
     try {
-      const response = await axios.get("/pokemons/");
+      const response = await axios.get("/pokemons");
       dispatch({
         type: GET_POKEMONS,
         payload: response.data,
