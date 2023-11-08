@@ -6,7 +6,7 @@ function Card({ pokemon }) {
   return (
     <Link
       style={{ textDecoration: "none" }}
-      to={`/detail/${pokemon.id}`}
+      to={`/detail/${pokemon.name}`}
       className={
         "card-container card-container-" +
         pokemon?.types?.map((type) => type.name)[0]
