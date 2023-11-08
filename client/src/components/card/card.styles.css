@@ -107,6 +107,10 @@
   background-image: url("../normalCard.png");
 }
 
+.card-container-flying {
+  background-image: url("../normalCard.png");
+}
+
 .card-container-dragon {
   background-image: url("../normalCard.png");
 }
