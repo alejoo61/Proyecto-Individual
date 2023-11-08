@@ -9,11 +9,11 @@ function Details() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const pokemonDetail = useSelector((state) => state.pokemonDetails);
-
   useEffect(() => {
     dispatch(getPokemonsId(id));
   }, []);
+
+  const pokemonDetail = useSelector((state) => state.pokemonDetails);
 
   return (
     <div className="card_details">

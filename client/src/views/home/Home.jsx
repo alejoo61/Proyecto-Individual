@@ -21,6 +21,8 @@ function Home() {
 
   const [aux, setAux] = useState(false);
 
+  const pokemonSearch = useState([]);
+
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 200) {
