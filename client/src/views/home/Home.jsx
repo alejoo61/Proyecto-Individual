@@ -14,7 +14,7 @@ import "../home/home.styles.css";
 function Home() {
   const dispatch = useDispatch();
   const allPokemons = useSelector((state) => state.allPokemons);
-  const pokemonDetails = useSelector((state) => state.pokemonDetails);
+
   const [scrolling, setScrolling] = useState(false);
 
   const navigate = useNavigate();
@@ -48,6 +48,7 @@ function Home() {
   }, [dispatch]);
 
   useEffect(() => {
+    const pokemonDetails = useSelector((state) => state.pokemonDetails);
     if (pokemonDetails.id && aux) {
       setAux(false);
     }
@@ -56,7 +57,7 @@ function Home() {
   const onSearch = async (name) => {
     try {
       if (name) {
-        await dispatch(await getPokemonsByName(name));
+        dispatch(await getPokemonsByName(name));
         navigate(`/detail/${pokemonDetails.id}`);
         setAux(true);
       } else {
