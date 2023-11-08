@@ -49,7 +49,6 @@ function Home() {
 
   useEffect(() => {
     if (pokemonDetails.id && aux) {
-      navigate(`/detail/${pokemonDetails.id}`);
       setAux(false);
     }
   }, [pokemonDetails, aux, navigate]);
@@ -58,6 +57,7 @@ function Home() {
     try {
       if (name) {
         dispatch(await getPokemonsByName(name));
+        navigate(`/detail/${pokemonDetails.id}`);
         setAux(true);
       } else {
         throw new Error("Por favor usa un nobre valido");
