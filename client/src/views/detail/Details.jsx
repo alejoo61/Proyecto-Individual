@@ -1,19 +1,38 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./detail.styles.css";
 import { useParams, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getPokemons, getPokemonsId } from "../../redux/actions";
+import axios from "axios";
 
 function Details() {
-  const { id } = useParams();
-  const dispatch = useDispatch();
+  const { name } = useParams();
+  // const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  useEffect(() => {
+  /**useEffect(() => {
     dispatch(getPokemonsId(id));
-  }, []);
+  }, []); 
 
-  const pokemonDetail = useSelector((state) => state.pokemonDetails);
+   const pokemonDetail = useSelector((state) => state.pokemonDetails); */
+
+  const [pokemonDetail, setPokemonDetail] = useState([]);
+
+  useEffect(() => {
+    axios(`/pokemons/name?name=${name}`)
+      .then(({ data }) => {
+        if (data.name) {
+          setPokemonDetail(data);
+        } else {
+          window.alert("Error");
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
+    return () => setPokemonDetail({});
+  }, []);
 
   return (
     <div className="card_details">

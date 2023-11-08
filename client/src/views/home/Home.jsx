@@ -14,6 +14,7 @@ import "../home/home.styles.css";
 function Home() {
   const dispatch = useDispatch();
   const allPokemons = useSelector((state) => state.allPokemons);
+  const pokemonDetails = useSelector((state) => state.pokemonDetails);
 
   const [scrolling, setScrolling] = useState(false);
 
@@ -47,18 +48,17 @@ function Home() {
     //})
   }, [dispatch]);
 
-  useEffect(() => {
-    const pokemonDetails = useSelector((state) => state.pokemonDetails);
+  /**useEffect(() => {
     if (pokemonDetails.id && aux) {
       setAux(false);
     }
-  }, [pokemonDetails, aux, navigate]);
+  }, [pokemonDetails, aux, navigate]); */
 
   const onSearch = async (name) => {
     try {
       if (name) {
-        dispatch(await getPokemonsByName(name));
-        navigate(`/detail/${pokemonDetails.id}`);
+        // dispatch(await getPokemonsByName(name));
+        navigate(`/detail/${name}`);
         setAux(true);
       } else {
         throw new Error("Por favor usa un nobre valido");
