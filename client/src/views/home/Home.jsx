@@ -56,7 +56,7 @@ function Home() {
   const onSearch = async (name) => {
     try {
       if (name) {
-        dispatch(await getPokemonsByName(name));
+        await dispatch(await getPokemonsByName(name));
         navigate(`/detail/${pokemonDetails.id}`);
         setAux(true);
       } else {
