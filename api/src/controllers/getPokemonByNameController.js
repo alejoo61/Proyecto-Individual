@@ -1,12 +1,16 @@
 const axios = require("axios");
 const URL = "https://pokeapi.co/api/v2/pokemon";
 const { Pokemon, Types } = require("../db");
+const { NUMBER } = require("sequelize");
 
 const getPokemonByNameController = async (name) => {
   const pokemon = await Pokemon.findOne({
-    where: { name },
+    where: { name: name },
     include: [{ model: Types }],
   });
+  if (Number(name)) {
+    throw new Error("El name no puede ser un número");
+  }
 
   if (pokemon) {
     return pokemon;
