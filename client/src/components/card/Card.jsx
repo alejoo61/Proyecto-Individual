@@ -16,7 +16,7 @@ function Card({ pokemon }) {
         className="card-container-img"
         style={{ width: "250px", minHeight: "252px" }}
       >
-        <img src={pokemon.image} alt="" style={{ width: "100%" }} />
+        <img src={pokemon.image} alt={pokemon.name} style={{ width: "100%" }} />
       </div>
       <div>
         <h2>{pokemon.name} </h2>
