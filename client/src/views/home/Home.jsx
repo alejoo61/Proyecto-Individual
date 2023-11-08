@@ -56,6 +56,13 @@ function Home() {
 
   const onSearch = async (name) => {
     try {
+      const response = await axios(`/pokemons/name?name=${name}`);
+      const data = response.data;
+      if (!data) {
+        window.alert("Pokemon no encontrado");
+        return;
+      }
+
       if (name) {
         // dispatch(await getPokemonsByName(name));
         navigate(`/detail/${name}`);
