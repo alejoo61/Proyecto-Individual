@@ -42,7 +42,7 @@ function Details() {
       <div className="img_container">
         <img src={pokemonDetail?.image} alt="" />
       </div>
-      <div key={id} className="type_container">
+      <div key={pokemonDetail?.id} className="type_container">
         {pokemonDetail?.types?.map((type) => (
           <div className="type_item">
             <span className={"detail_type2 detail_type2_" + type.name}></span>
