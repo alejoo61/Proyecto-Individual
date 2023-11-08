@@ -9,8 +9,17 @@ const postPokemonController = async (req) => {
   }
 
   const [pokemon, created] = await Pokemon.findOrCreate({
-    where: { name },
-    defaults: { image, height, weight, attack, defense, health, speed },
+    where: { name: name.toLowerCase() },
+    defaults: {
+      name: name.toLowerCase(),
+      image,
+      height,
+      weight,
+      attack,
+      defense,
+      health,
+      speed,
+    },
   });
 
   if (created) {

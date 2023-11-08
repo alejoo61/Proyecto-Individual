@@ -1,11 +1,10 @@
 const axios = require("axios");
 const URL = "https://pokeapi.co/api/v2/pokemon";
 const { Pokemon, Types } = require("../db");
-const { NUMBER } = require("sequelize");
 
 const getPokemonByNameController = async (name) => {
   const pokemon = await Pokemon.findOne({
-    where: { name: name },
+    where: { name: name.toLowerCase() },
     include: [{ model: Types }],
   });
   if (Number(name)) {
