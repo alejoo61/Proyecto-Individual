@@ -17,7 +17,7 @@ export const getPokemons = () => {
       });
     } catch (error) {
       // Manejo de errores si la solicitud falla
-      console.log(error);
+      console.log(error.message);
     }
   };
 };
@@ -33,7 +33,7 @@ export const getPokemonsId = (id) => {
       });
     } catch (error) {
       // Manejo de errores si la solicitud falla
-      console.log(error);
+      console.log(error.message);
     }
   };
 };
@@ -49,7 +49,7 @@ export const getPokemonsByName = async (name) => {
       });
     } catch (error) {
       // Manejo de errores si la solicitud falla
-      console.log(error);
+      console.log(error.message);
     }
   };
 };
@@ -87,7 +87,7 @@ export const createPokemon = (newPokemon) => {
         payload: data,
       });
     } catch (error) {
-      console.log(error);
+      console.log(error.message);
     }
   };
 };
